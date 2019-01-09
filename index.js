@@ -9,15 +9,26 @@ clear();
 
 console.log(
   chalk.yellow(
-    figlet.textSync('Jour', { horizontalLayout: 'full' })
+    figlet.textSync('Carl Jour', { horizontalLayout: 'full' })
   )
 );
 
 const run = async () => {
-    console.info('reun whatevs.');
-    process.argv.forEach(function (val, index, array) {
-        console.log(index + ': ' + val);
-    });
+    console.info('run whatevs.');
+    //console.info(process);
+    //process.argv[2]
+    const [, , ...args] = process.argv;
+    switch (args[0]) {
+        case ".":
+            console.info(chalk.yellow('task added ') + args.join(" "));
+            break;
+        case "!":
+            console.info(chalk.yellow('fact added ') + args.join(" "));
+            break;
+    }
+    //args.forEach(function (val, index, array) {
+    //    console.log(index + ': ' + val);
+    //});
 };
 
 run();
